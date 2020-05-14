@@ -50,13 +50,13 @@ typedef struct instruction_s
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
 
-
-
 /* PROTOTYPES */
 void error_exit(char *message1, char *message2);
 void (*instruction_func(char *, int))(stack_t **, unsigned int);
 int _strcmp(char *str1, char *str2);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
+stack_t *add_dnodeint(stack_t **head, const int n);
+size_t print_stack_t(const stack_t *h);
 
 #endif /* MONTY_PROJECT_H */
