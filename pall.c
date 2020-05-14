@@ -1,3 +1,4 @@
+#include "global.h"
 #include "monty.h"
 
 /**
@@ -8,10 +9,7 @@
  * @line_number: number of line where the instruction is.
  */
 
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack,  __attribute__((unused)) unsigned int line_number)
 {
-        printf("pall\n");
-        if (stack == NULL)
-                printf("stack is NULL\n");
-        printf("ln: %u\n", line_number);
+	print_stack_t(*stack);
 }
