@@ -29,7 +29,7 @@ void (*instruction_func(char *str, int line_number))(stack_t **, unsigned int)
 		str++;
 	}
 
-	while (*str < 97 && *str > 122)/*look for first instruction letter*/
+	while (*str == ' ' || *str == '\n')/*look for first instruction letter*/
 	{/*     what if there is an strange symbol before the instruction?*/
 		if (*str == '\n')/*Error if any instruction is not find*/
 			return (NULL);
