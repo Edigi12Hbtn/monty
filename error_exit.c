@@ -1,3 +1,4 @@
+#include "global.h"
 #include "monty.h"
 
 /**
@@ -10,10 +11,10 @@
 
 void error_exit(char *message1, char *message2)
 {
-        if (message2 == NULL)
-                message2 = "";
+	if (message2 == NULL)
+		message2 = "";
 
-        fprintf(stderr, "%s", message1);
-        fprintf(stderr, "%s\n", message2);
-        exit(EXIT_FAILURE);
+	fprintf(stderr, "%s", message1);
+	fprintf(stderr, "%s\n", message2);
+	exit(EXIT_FAILURE);
 }
