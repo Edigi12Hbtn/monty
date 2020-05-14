@@ -1,5 +1,7 @@
 #include "monty.h"
 
+char *buf; /*Readed bytes from file*/
+
 /**
  * main - Interpreter for Monty ByteCodes files.
  *
@@ -11,8 +13,7 @@
 
 int main(int argc, char *argv[])
 {
-	int fd = 0, line_number = 1;
-	char *buf = NULL; /*Readed bytes from file*/
+	int fd = 0, line_number = 0;
 	ssize_t readed = 0; /*Number of readed bytes from file*/
 	void (*f)(stack_t **, unsigned int) = NULL;
 	stack_t *stack = NULL;
@@ -34,16 +35,17 @@ int main(int argc, char *argv[])
 	readed = read(fd, buf, 1024);
 	/*what if it fails?*/
 
-	printf("Number %d, Readed bytes:\n%s", (int) readed, buf);
-	printf("line_number: %d\n", line_number);
-
 	if (readed != 0)/*line_number > real line_number*/
 	{
-		f = instruction_func(buf, line_number);
-		if (f == NULL)
-			printf("function end with NULL\n");
-		else
-			f(&stack, line_number);
+		while (1)
+		{
+			f = instruction_func(buf, line_number);
+			if (f == NULL)
+				break;
+			else
+				f(&stack, line_number);
+			line_number++;
+		}
 	}
 	close(fd);
 	free(buf);
