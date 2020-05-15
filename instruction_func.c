@@ -13,7 +13,8 @@
 void (*instruction_func(char *instruction))(stack_t **, unsigned int)
 {
 	instruction_t name_func[] = {{"push", push}, {"pall", pall},
-	{"pint", pint}, {"pop", pop}, {NULL, NULL}};
+	{"pint", pint}, {"pop", pop}, {"swap", swap}, {"add", add},
+	{"nop", nop}, {NULL, NULL}};
 	int i = 0, match = 0;
 
 	while ((name_func[i]).opcode != NULL && match == 0)
