@@ -16,7 +16,8 @@ void push(stack_t **stack, unsigned int line_number)
 
 	while (line_args[1][idx] != '\0')
 	{
-		if ((line_args[1][idx] < 48 || line_args[1][idx] > 57) && line_args[1][0] != '-')
+		if ((line_args[1][idx] < 48 || line_args[1][idx] > 57) &&
+			line_args[1][0] != '-')
 		{
 			fprintf(stderr, "L%d: usage: push integer\n", line_number + 1);
 			exit(EXIT_FAILURE);
