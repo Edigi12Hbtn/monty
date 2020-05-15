@@ -63,5 +63,6 @@ void get_arguments(char **line_args, char *buf, int line_number);
 void free_stack_t(stack_t *head);
 void instr_error(int line_num, int fd, char *buf, stack_t *stack);
 void free_all(int fd, char *buf, stack_t *stack);
+void pint(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_PROJECT_H */
