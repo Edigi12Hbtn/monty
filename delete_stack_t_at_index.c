@@ -22,8 +22,9 @@ int delete_stack_t_at_index(stack_t **head, unsigned int index)
 	if (index == 0)
 	{
 		*head = (*head)->next;
-		free((*head)->prev);
-		(*head)->prev = NULL;
+		free(node_to_del);
+		if ((*head) != NULL)
+			(*head)->prev = NULL;
 		return (1);
 	}
 
