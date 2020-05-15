@@ -66,5 +66,8 @@ void free_all(int fd, char *buf, stack_t *stack);
 void pint(stack_t **stack, unsigned int line_number);
 int delete_stack_t_at_index(stack_t **head, unsigned int index);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
+void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 
 #endif /* MONTY_PROJECT_H */
