@@ -10,5 +10,6 @@
 
 void pall(stack_t **stack,  __attribute__((unused)) unsigned int line_number)
 {
-	print_stack_t(*stack);
+	if (*stack != NULL)
+		print_stack_t(*stack);
 }
