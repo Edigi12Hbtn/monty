@@ -7,34 +7,24 @@
  * @stack: double pointer to head of stack.
  * @line_number: number of line where the instruction is.
  */
-
 void push(stack_t **stack, unsigned int line_number)
 {
-	int bytes_in_line = 0, n = 0;
-	extern char *buf;
-	char *line = buf;
+	int n = 0, idx = 0;
 
-	while (line_number != 0)
+	if (line_args[1] == NULL)
+		line_args[1] = "imnotnum";
+
+	while (line_args[1][idx] != '\0')
 	{
-		if (*line == '\n')
-			line_number--;
-		else if (*line == '\0')
-			return;
-		line++;
+		if (line_args[1][idx] < 48 || line_args[1][idx] > 57)
+		{
+			fprintf(stderr, "L%d: usage: push integer\n", line_number + 1);
+			exit(EXIT_FAILURE);
+		}
+		idx++;
 	}
 
-	while (*line < 48 || *line > 57)
-		line++;
-
-	while (line[bytes_in_line] != '\n')
-		bytes_in_line++;
-
-	line[bytes_in_line] = '\0';
-
-	n = atoi(line);
-	/* printf("line: %s, n: %d\n", line, n); */
+	n = atoi(line_args[1]);
 
 	add_dnodeint(stack, n);
-
-	line[bytes_in_line] = '\n';
 }
