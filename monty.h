@@ -52,11 +52,16 @@ typedef struct instruction_s
 
 /* PROTOTYPES */
 void error_exit(char *message1, char *message2);
-void (*instruction_func(char *, int))(stack_t **, unsigned int);
+void (*instruction_func(char *instruction))(stack_t **, unsigned int);
 int _strcmp(char *str1, char *str2);
 void push(stack_t **stack, unsigned int line_number);
 void pall(stack_t **stack, unsigned int line_number);
 stack_t *add_dnodeint(stack_t **head, const int n);
 size_t print_stack_t(const stack_t *h);
+int num_lines(char *buf);
+void get_arguments(char **line_args, char *buf, int line_number);
+void free_stack_t(stack_t *head);
+void instr_error(int line_num, int fd, char *buf, stack_t *stack);
+void free_all(int fd, char *buf, stack_t *stack);
 
 #endif /* MONTY_PROJECT_H */
